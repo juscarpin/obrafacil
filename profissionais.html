@@ -1,0 +1,1847 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conhecer profissionais — Obra Fácil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600&family=Newsreader:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<style>
+
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+  --white:#FFFFFF;
+  --paper:#FBF9F5;
+  --beige:#F0EAE0;
+  --concrete:#E4DFD4;
+  --ink:#18170F;
+  --ink-soft:#181817;
+  --warm-gray:#8C8471;
+  --forest:#2C3B24;
+  --forest-deep:#1F2A19;
+  --hair:rgba(24,23,15,0.10);
+  --yellow:#FFD370;
+  --yellow-dark:#40280B;
+  --font-display:'Geist','Inter',sans-serif;
+  --font-body:'Inter',sans-serif;
+  --success:#3A7A48;
+  --error:#C0392B;
+  --wa:#25D366;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--font-display);
+  font-weight:400;
+  color:#222;
+  background:#ffffff;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  min-height:100vh;
+}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.topbar{
+  position:fixed;
+  top:0;left:0;right:0;
+  height:80px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 40px;
+  background:#fff;
+  border-bottom:1.5px solid #f0f0f0;
+  z-index:200;
+}
+.topbar-logo{display:block;width:154.917px;height:43.722px;overflow:hidden;position:relative;}
+.topbar-logo img{position:absolute;width:139.92px;height:43.72px;top:-4.31%;left:0;display:block;}
+.btn-ajuda{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  height:48px;
+  background:none;
+  border:none;
+  font-family:'Inter',sans-serif;
+  font-size:16px;
+  font-weight:400;
+  color:#000;
+  padding:0;
+  transition:opacity .2s;
+}
+.btn-ajuda:hover{opacity:.6;}
+.btn-ajuda .ajuda-icon{width:24px;height:24px;display:flex;align-items:center;justify-content:center;}
+
+/* shown only on screen-r */
+.btn-back-r{
+  display:none;
+  align-items:center;
+  gap:7px;
+  height:36px;
+  padding:0 16px;
+  border-radius:999px;
+  border:1.5px solid rgba(0,0,0,0.12);
+  background:transparent;
+  font-family:var(--font-display);
+  font-size:13px;
+  font-weight:500;
+  color:var(--warm-gray);
+  transition:border-color .2s,color .2s,background .2s;
+}
+.btn-back-r:hover{border-color:var(--warm-gray);color:var(--ink);background:#f5f4f0;}
+.btn-back-r svg{width:14px;height:14px;}
+
+/* ============================================================
+   SCREEN 1 — PERGUNTAS
+   ============================================================ */
+#screen-q{
+  padding-top:96px;
+  min-height:100vh;
+}
+
+/* content wrapper — 856px centered */
+.q-wrap{
+  max-width:856px;
+  margin:0 auto;
+  padding:0 24px 100px;
+}
+
+/* Hero card */
+.hero-card{
+  position:relative;
+  border-radius:16px;
+  overflow:hidden;
+  height:240px;
+  margin-top:40px;
+}
+
+/* decorative blobs */
+.hero-blob{
+  position:absolute;
+  pointer-events:none;
+}
+.hero-blob-inner{
+  position:absolute;
+  top:-37.29%;left:-36.43%;right:-36.43%;bottom:-37.29%;
+}
+.hero-blob-inner img{
+  display:block;
+  width:100%;height:100%;
+  max-width:none;
+}
+.hero-blob-1{ left:-163px;top:-33px;width:477px;height:466px; }
+.hero-blob-2{ left:483px;top:-181px;width:477px;height:466px; }
+
+/* kicker */
+.hero-kicker{
+  position:absolute;
+  left:24px;top:24px;
+  font-family:'Geist','Inter',sans-serif;
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:1.8px;
+  text-transform:uppercase;
+  color:#8c8471;
+  line-height:normal;
+}
+
+/* photo */
+.hero-card-photo{
+  position:absolute;
+  left:441px;top:24px;
+  width:345px;height:192px;
+  border-radius:15.842px;
+  overflow:hidden;
+  background:#d9d9d9;
+}
+.hero-card-photo img{
+  position: absolute;
+  top: -29.19%;
+  left: -36.99%;
+  width: 140.99%;
+  height: 160.69%;
+  max-width: none;
+  display: block;
+}
+
+/* text */
+.hero-card-text{
+  position:absolute;
+  left:24px;top:100px;
+  width:262px;height:116px;
+}
+.hero-p{
+  font-family:'Geist','Inter',sans-serif;
+  font-size:30px;
+  font-weight:400;
+  color:#222;
+  line-height:1;
+  white-space:pre-wrap;
+  display:block;
+}
+.hero-em-m{
+  font-family:'Newsreader',serif;
+  font-style:italic;
+  font-weight:500;
+}
+.hero-em-r{
+  font-family:'Newsreader',serif;
+  font-style:italic;
+  font-weight:400;
+}
+
+/* section headings */
+.sec-head{
+  padding:72px 0 0;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-bottom:32px;
+}
+.sec-head h2{
+  font-family:var(--font-display);
+  font-size:24px;
+  font-weight:400;
+  color:#171717;
+  line-height:1.1;
+}
+.sec-head p{
+  font-size:14px;
+  font-weight:400;
+  color:#707075;
+  line-height:1.5;
+}
+
+/* chips grid */
+.chips-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+/* chip — horizontal */
+.chip{
+  position:relative;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  gap:16px;
+      padding: 12px;
+  background:#ffffff;
+  border:none;
+  border-radius:16px;
+  cursor:pointer;
+  text-align:left;
+  overflow:hidden;
+  transition:box-shadow .15s;
+  border: 1px solid #e5e5e5;
+}
+.chip:hover{box-shadow:inset 0 0 0 1px rgba(0,0,0,0.16);}
+.chip:focus-visible{outline:3px solid var(--yellow);outline-offset:2px;}
+.chip.on{
+  background:radial-gradient(ellipse at 80% 120%, #fff4b8 3%, #fffce8 60%, #f9f9f7 100%);
+}
+/* icon wrapper */
+.chip-icon-wrap{
+  position:relative;
+  width:48px;
+  height:48px;
+  flex-shrink:0;
+  overflow:hidden;
+  border-radius:8px;
+}
+.chip-icon-img{
+  position:absolute;
+  width:61px;height:61px;
+  top:-6.5px;left:-6.5px;
+  object-fit:cover;
+  pointer-events:none;
+}
+.chip-label{
+  font-family:var(--font-display);
+  font-size:14px;
+  font-weight:400;
+  color:#191919;
+  line-height:1.24;
+  flex:1;
+  white-space:nowrap;
+}
+/* checkbox — flex end */
+.chip-cb{
+  flex-shrink:0;
+  width:24px;height:24px;
+  border-radius:4px;
+  border:1px solid rgba(0,0,0,0.10);
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background .18s,border-color .18s;
+}
+.chip-cb svg{
+  width:14px;height:14px;
+  opacity:0;
+  transition:opacity .18s;
+}
+.chip.on .chip-cb{
+  background:var(--yellow);
+  border-color:var(--yellow);
+}
+.chip.on .chip-cb svg{opacity:1;}
+
+/* location section */
+.loc-section{padding-top:0;margin-top:32px;}
+.loc-field{
+  position:relative;
+  width:50%;
+}
+.loc-field .pin-icon{
+  position:absolute;
+  left:16px;top:50%;
+  transform:translateY(-50%);
+  width:20px;height:20px;
+  color:#707075;
+  pointer-events:none;
+}
+#loc-input{
+  width:100%;
+  height:64px;
+  padding:0 24px 0 48px;
+  background:#ffffff;
+  border:none;
+  border-radius:16px;
+  font-family:var(--font-display);
+  font-size:16px;
+  font-weight:400;
+  color:#171717;
+  outline:none;
+  transition:background .18s;
+  border: 1px solid #e5e5e5;
+}
+#loc-input::placeholder{color:#555558;}
+#loc-input:focus{background:#f3f2ee;}
+#loc-input.err{background:#fdf0ee;}
+.loc-error{
+  display:none;
+  align-items:center;
+  gap:6px;
+  margin-top:8px;
+  font-size:13px;
+  color:var(--error);
+}
+.loc-error.show{display:flex;}
+.loc-error svg{width:14px;height:14px;flex-shrink:0;}
+
+/* CTA floating card */
+.cta-bar{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  height:80px;
+  background:#fff;
+  border-top:1.5px solid #f0f0f0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 40px;
+  z-index:100;
+}
+.cta-summary{
+  font-family:var(--font-display);
+  font-size:16px;
+  font-weight:400;
+  color:#171717;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  flex:1;
+}
+.cta-summary strong{font-weight:700;}
+.btn-cta{
+  height:56px;
+  padding:0 28px;
+  border-radius:500px;
+  border:none;
+  background:#ffd370;
+  color:#40280b;
+  font-family:var(--font-display);
+  font-size:16px;
+  font-weight:500;
+  white-space:nowrap;
+  flex-shrink:0;
+  transition:filter .22s;
+}
+.btn-cta:not(:disabled):hover{filter:brightness(0.94);}
+.btn-cta:disabled{opacity:.35;cursor:not-allowed;}
+
+/* ============================================================
+   SCREEN 2 — RESULTADOS
+   ============================================================ */
+#screen-r{
+  min-height:100vh;
+  padding-top:96px;
+  display:none;
+  background:#fff;
+}
+#screen-r.vis{display:block;}
+
+/* search context bar */
+.srch-bar{
+  position:sticky;
+  top:80px;
+  background:rgba(255,255,255,0.96);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(0,0,0,0.08);
+  padding:14px 40px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  z-index:150;
+}
+.srch-chips{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  flex-wrap:wrap;
+  flex:1;
+  min-width:0;
+}
+.srch-chip{
+  display:inline-flex;
+  align-items:center;
+  height:30px;
+  padding:0 12px;
+  border-radius:999px;
+  background:var(--beige);
+  border:1px solid var(--concrete);
+  font-size:12.5px;
+  font-weight:500;
+  color:var(--ink-soft);
+  white-space:nowrap;
+}
+.srch-chip.ghost{
+  background:transparent;
+  border:none;
+  color:var(--warm-gray);
+  padding-left:6px;
+}
+.srch-sep{color:var(--concrete);}
+.btn-edit{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  height:34px;
+  padding:0 14px;
+  border-radius:999px;
+  border:1.5px solid var(--concrete);
+  background:#fff;
+  font-family:var(--font-display);
+  font-size:12.5px;
+  font-weight:500;
+  color:var(--ink-soft);
+  white-space:nowrap;
+  transition:border-color .2s,background .2s;
+}
+.btn-edit:hover{border-color:var(--warm-gray);background:var(--beige);}
+.btn-edit svg{width:13px;height:13px;}
+
+/* results main */
+.r-main{
+  max-width:1200px;
+  margin:0 auto;
+  padding:56px 40px 88px;
+}
+.r-title{
+  font-family:var(--font-display);
+  font-size:clamp(26px,4vw,46px);
+  font-weight:300;
+  color:var(--ink);
+  letter-spacing:-0.025em;
+  line-height:1.1;
+  margin-bottom:10px;
+}
+.r-count{
+  font-size:14px;
+  color:var(--warm-gray);
+  margin-bottom:48px;
+}
+
+/* cards grid */
+.cards-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+/* single card */
+.pro-card{
+  background:#fff;
+  border:1px solid var(--hair);
+  border-radius:20px;
+  overflow:hidden;
+  transition:transform .28s cubic-bezier(.16,.8,.24,1),box-shadow .28s ease;
+  cursor:pointer;
+}
+.pro-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 16px 48px rgba(24,23,15,0.10);
+}
+.pro-card-body{padding:26px 26px 24px;}
+.pro-photo{
+  height:180px;
+  overflow:hidden;
+  position:relative;
+}
+.pro-photo img{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .5s cubic-bezier(.16,.8,.24,1);
+}
+.pro-card:hover .pro-photo img{transform:scale(1.04);}
+.pro-photo-badge{
+  position:absolute;
+  bottom:12px;left:12px;
+  display:inline-flex;
+  align-items:center;
+  height:26px;
+  padding:0 10px;
+  border-radius:999px;
+  background:rgba(24,23,15,0.65);
+  backdrop-filter:blur(8px);
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.9);
+}
+.pro-top{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  margin-bottom:14px;
+}
+.pro-av{
+  width:54px;height:54px;
+  border-radius:12px;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:17px;
+  letter-spacing:-0.01em;
+  color:rgba(255,255,255,0.9);
+  overflow:hidden;
+}
+.pro-name-block{flex:1;min-width:0;}
+.pro-name{
+  font-family:var(--font-display);
+  font-size:15.5px;
+  font-weight:500;
+  color:var(--ink);
+  margin-bottom:5px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.pro-rating{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  flex-wrap:wrap;
+}
+.pro-rnum{
+  font-family:var(--font-display);
+  font-size:13.5px;
+  font-weight:600;
+  color:var(--ink);
+}
+.stars{
+  position:relative;
+  display:inline-block;
+  font-size:12px;
+  letter-spacing:1.5px;
+  line-height:1;
+}
+.stars-bg{color:var(--concrete);}
+.stars-fg{
+  position:absolute;
+  top:0;left:0;
+  overflow:hidden;
+  white-space:nowrap;
+  color:var(--yellow);
+}
+.pro-rcount{font-size:12px;color:var(--warm-gray);}
+.pro-verified{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  font-size:12px;
+  font-weight:500;
+  color:var(--success);
+  margin-bottom:14px;
+}
+.pro-verified svg{width:13px;height:13px;}
+.pro-verified.hidden{visibility:hidden;}
+.pro-meta{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+  padding:14px 0;
+  border-top:1px solid var(--hair);
+  border-bottom:1px solid var(--hair);
+  margin-bottom:18px;
+}
+.pro-tag{
+  display:inline-flex;
+  align-items:center;
+  height:22px;
+  padding:0 9px;
+  border-radius:999px;
+  font-size:10.5px;
+  font-weight:500;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  background:var(--beige);
+  color:var(--warm-gray);
+  align-self:flex-start;
+}
+.pro-spec{font-size:13.5px;color:var(--ink-soft);font-weight:400;}
+.pro-loc{
+  display:flex;
+  align-items:center;
+  gap:4px;
+  font-size:12.5px;
+  color:var(--warm-gray);
+}
+.pro-loc svg{width:13px;height:13px;flex-shrink:0;}
+.pro-actions{display:flex;gap:8px;}
+.btn-ver{
+  flex:1;
+  height:42px;
+  border-radius:500px;
+  border:none;
+  background:var(--yellow);
+  color:var(--yellow-dark);
+  font-family:var(--font-display);
+  font-size:13px;
+  font-weight:500;
+  transition:background .2s;
+}
+.btn-ver:hover{background:#f5c84a;}
+.btn-wa{
+  width:42px;height:42px;
+  border-radius:10px;
+  border:1.5px solid var(--concrete);
+  background:#fff;
+  color:var(--wa);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:border-color .2s,background .2s;
+  flex-shrink:0;
+}
+.btn-wa:hover{border-color:var(--wa);background:#f0fdf4;}
+.btn-wa svg{width:19px;height:19px;}
+
+/* ============================================================
+   SKELETON
+   ============================================================ */
+.sk-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.sk-card{
+  background:#fff;
+  border:1px solid var(--hair);
+  border-radius:20px;
+  padding:26px;
+}
+@keyframes shim{
+  0%{background-position:-500px 0}
+  100%{background-position:500px 0}
+}
+.sk{
+  background:linear-gradient(90deg,#f2f0eb 25%,#e8e4dd 50%,#f2f0eb 75%);
+  background-size:500px 100%;
+  animation:shim 1.3s ease-in-out infinite;
+  border-radius:6px;
+}
+.sk-row{display:flex;gap:14px;align-items:flex-start;margin-bottom:18px;}
+.sk-av{width:54px;height:54px;border-radius:12px;flex-shrink:0;}
+.sk-lines{flex:1;display:flex;flex-direction:column;gap:8px;padding-top:4px;}
+.sk-l{height:12px;}
+.sk-l.w70{width:70%;}
+.sk-l.w50{width:50%;}
+.sk-l.w35{width:35%;}
+.sk-actions{display:flex;gap:8px;margin-top:18px;}
+.sk-btn-main{flex:1;height:42px;border-radius:10px;}
+.sk-btn-sq{width:42px;height:42px;border-radius:10px;flex-shrink:0;}
+
+/* ============================================================
+   EMPTY / ERROR STATES
+   ============================================================ */
+.state-box{
+  max-width:420px;
+  margin:64px auto;
+  text-align:center;
+  padding:0 24px;
+}
+.state-icon-wrap{
+  width:64px;height:64px;
+  border-radius:50%;
+  background:var(--beige);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 24px;
+}
+.state-icon-wrap svg{width:26px;height:26px;color:var(--warm-gray);}
+.state-h{
+  font-family:var(--font-display);
+  font-size:20px;
+  font-weight:400;
+  color:var(--ink);
+  margin-bottom:10px;
+}
+.state-p{
+  font-size:14px;
+  color:var(--warm-gray);
+  line-height:1.65;
+  margin-bottom:28px;
+}
+.state-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
+.btn-state{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  height:44px;
+  padding:0 22px;
+  border-radius:999px;
+  border:1.5px solid var(--concrete);
+  background:#fff;
+  font-family:var(--font-display);
+  font-size:13.5px;
+  font-weight:500;
+  color:var(--ink-soft);
+  transition:border-color .2s,background .2s;
+}
+.btn-state:hover{border-color:var(--warm-gray);background:var(--beige);}
+
+/* ============================================================
+   TRANSITIONS
+   ============================================================ */
+@keyframes exitUp{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-14px)}}
+@keyframes enterUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.fade-exit{animation:exitUp .3s cubic-bezier(.4,0,1,1) forwards;}
+.fade-enter{animation:enterUp .45s cubic-bezier(.16,.8,.24,1) forwards;}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+/* ============================================================
+   DRAWER + LIGHTBOX
+   ============================================================ */
+.drw-overlay{position:fixed;inset:0;background:rgba(24,23,15,0.45);z-index:400;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.drw-overlay.vis{opacity:1;pointer-events:all;}
+.drawer{
+  position:fixed;top:0;right:0;bottom:0;
+  width:480px;max-width:calc(100vw - 40px);
+  background:#fff;z-index:401;
+  display:flex;flex-direction:column;
+  transform:translateX(110%);
+  transition:transform .35s cubic-bezier(.16,.8,.24,1);
+  box-shadow:-16px 0 48px rgba(24,23,15,0.12);
+  overflow:hidden;
+}
+.drawer.vis{transform:translateX(0);}
+.drw-hd{display:flex;align-items:flex-start;gap:14px;padding:24px 24px 20px;border-bottom:1px solid var(--hair);flex-shrink:0;}
+.drw-av{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:16px;color:#fff;flex-shrink:0;overflow:hidden;}
+.drw-av img{width:100%;height:100%;object-fit:contain;}
+.drw-info{flex:1;min-width:0;}
+.drw-name{font-family:var(--font-display);font-size:17px;font-weight:500;color:var(--ink);line-height:1.25;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.drw-rating-row{display:flex;align-items:center;gap:5px;margin-bottom:4px;}
+.drw-rnum{font-size:13px;font-weight:500;color:var(--ink);}
+.drw-rcount{font-size:12.5px;color:var(--warm-gray);}
+.drw-loc-row{display:flex;align-items:center;gap:4px;font-size:12.5px;color:var(--warm-gray);}
+.drw-loc-row svg{width:13px;height:13px;flex-shrink:0;}
+.drw-close{width:36px;height:36px;border-radius:50%;border:1px solid var(--concrete);background:#fff;display:flex;align-items:center;justify-content:center;color:var(--ink);flex-shrink:0;transition:background .15s;}
+.drw-close:hover{background:var(--beige);}
+.drw-close svg{width:16px;height:16px;}
+.drw-tabs{display:flex;border-bottom:1px solid var(--hair);padding:0 24px;flex-shrink:0;}
+.drw-tab{flex:1;height:44px;background:none;border:none;border-bottom:2px solid transparent;font-family:var(--font-display);font-size:14px;font-weight:400;color:var(--warm-gray);transition:color .15s,border-color .15s;margin-bottom:-1px;}
+.drw-tab.active{color:var(--ink);font-weight:500;border-bottom-color:var(--yellow-dark);}
+.drw-tab:hover:not(.active){color:var(--ink);}
+.drw-body{flex:1;overflow-y:auto;overflow-x:hidden;}
+.drw-panel{padding:24px;}
+.drw-panel.hidden{display:none;}
+.photo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;}
+.photo-grid-item{border-radius:12px;overflow:hidden;aspect-ratio:4/3;cursor:pointer;background:var(--beige);position:relative;}
+.photo-grid-item img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease;display:block;}
+.photo-grid-item:hover img{transform:scale(1.04);}
+.photo-grid-item:first-child{grid-column:1/-1;aspect-ratio:16/9;}
+.no-photos{text-align:center;padding:48px 0;color:var(--warm-gray);font-size:14px;}
+.rat-summary{display:flex;align-items:center;gap:28px;padding:20px;background:var(--paper);border-radius:16px;margin-bottom:24px;}
+.rat-left{flex-shrink:0;display:flex;flex-direction:column;gap:6px;}
+.rat-big{font-family:var(--font-display);font-size:44px;font-weight:300;color:var(--ink);line-height:1;letter-spacing:-1px;}
+.rat-count-txt{font-size:12px;color:var(--warm-gray);}
+.stars--lg{font-size:16px !important;}
+.rat-bars{flex:1;}
+.rat-bar-row{display:flex;align-items:center;gap:6px;margin-bottom:6px;}
+.rat-bar-row:last-child{margin-bottom:0;}
+.rat-bar-track{flex:1;height:4px;border-radius:2px;background:var(--concrete);overflow:hidden;}
+.rat-bar-fill{height:100%;border-radius:2px;background:var(--yellow);}
+.rat-bar-label{font-size:11px;color:var(--warm-gray);width:8px;text-align:right;flex-shrink:0;}
+.rat-bar-star{font-size:10px;color:var(--warm-gray);flex-shrink:0;line-height:1;}
+.reviews-list{display:flex;flex-direction:column;gap:20px;}
+.review-item{padding-bottom:20px;border-bottom:1px solid var(--hair);}
+.review-item:last-child{border-bottom:none;padding-bottom:0;}
+.review-top{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.review-av{width:34px;height:34px;border-radius:50%;background:var(--beige);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:var(--warm-gray);flex-shrink:0;}
+.review-meta{flex:1;}
+.review-name{font-size:13.5px;font-weight:500;color:var(--ink);margin-bottom:2px;}
+.review-date{font-size:11.5px;color:var(--warm-gray);}
+.review-text{font-size:13.5px;color:var(--ink);line-height:1.6;}
+.drw-footer{
+  flex-shrink:0;
+  padding:16px 24px 24px;
+  border-top:1px solid var(--hair);
+  background:#fff;
+}
+.btn-drw-contact{
+  width:100%;
+  height:52px;
+  border-radius:500px;
+  border:none;
+  background:var(--yellow);
+  color:var(--yellow-dark);
+  font-family:var(--font-display);
+  font-size:15px;
+  font-weight:500;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  transition:background .2s;
+}
+.btn-drw-contact:hover{background:#f5c84a;}
+.btn-drw-contact svg{width:18px;height:18px;flex-shrink:0;}
+.sobre-section{margin-bottom:24px;}
+.sobre-label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--warm-gray);margin-bottom:8px;}
+.sobre-text{font-size:14px;color:var(--ink);line-height:1.65;}
+.sobre-row{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--ink);padding:10px 0;border-bottom:1px solid var(--hair);}
+.sobre-row:last-child{border-bottom:none;}
+.sobre-row svg{width:17px;height:17px;color:var(--warm-gray);flex-shrink:0;}
+.sobre-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
+.sobre-pill{padding:5px 12px;border-radius:20px;background:var(--beige);font-size:12.5px;color:var(--ink);}
+.sobre-social{display:flex;gap:8px;flex-wrap:wrap;}
+.sobre-social-link{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;border:1px solid var(--concrete);font-size:13px;color:var(--ink);transition:background .15s;}
+.sobre-social-link:hover{background:var(--beige);}
+.sobre-social-link svg{width:16px;height:16px;}
+.lightbox{position:fixed;inset:0;background:rgba(24,23,15,0.9);z-index:500;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s ease;}
+.lightbox.vis{opacity:1;pointer-events:all;}
+.lightbox img{max-width:90vw;max-height:90vh;border-radius:12px;object-fit:contain;pointer-events:none;}
+.lightbox-close{position:absolute;top:24px;right:24px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.15);border:none;color:#fff;display:flex;align-items:center;justify-content:center;transition:background .15s;}
+.lightbox-close:hover{background:rgba(255,255,255,0.25);}
+.lightbox-close svg{width:18px;height:18px;}
+
+@media(max-width:960px){
+  .cards-grid,.sk-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:720px){
+  .topbar{padding:0 20px;}
+  .hero-card{height:auto;padding-bottom:24px;}
+  .hero-card-photo{position:relative;right:auto;top:auto;width:calc(100% - 48px);height:200px;margin:16px 24px 0;}
+  .hero-card-text{position:relative;left:auto;top:auto;padding:32px 24px 0;max-width:100%;}
+  .hero-card-h1{font-size:28px;}
+  .chips-grid{grid-template-columns:1fr;}
+  .loc-field{width:100%;}
+  .cta-bar{padding:0 20px;}
+  .btn-cta{width:auto;}
+  .srch-bar{padding:12px 20px;}
+  .r-main{padding:40px 20px 64px;}
+  .cards-grid,.sk-grid{grid-template-columns:1fr;}
+  .drawer{top:auto;right:0;left:0;width:100%;max-width:100%;height:88svh;border-radius:20px 20px 0 0;transform:translateY(110%);box-shadow:0 -8px 32px rgba(24,23,15,0.12);}
+  .drawer.vis{transform:translateY(0);}
+  .drw-hd{padding:20px 20px 16px;}
+  .drw-tabs{padding:0 20px;}
+  .drw-panel{padding:20px;}
+  .photo-grid{grid-template-columns:1fr;}
+  .photo-grid-item:first-child{aspect-ratio:4/3;}
+}
+@media(max-width:420px){
+  .chips-grid{grid-template-columns:1fr;gap:12px;}
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="topbar" id="topbar">
+  <a class="topbar-logo" href="index.html" aria-label="Obra Fácil — home">
+    <img src="logo_profissionais.png" alt="Obra Fácil">
+  </a>
+
+  <!-- Ajuda — visible on screen 1 -->
+  <button class="btn-ajuda" id="btn-ajuda" type="button" aria-label="Ajuda">
+    <span class="ajuda-icon" aria-hidden="true">
+      <svg width="19.5" height="19.5" viewBox="0 0 19.5 19.5" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10.875 14.625C10.875 14.8475 10.809 15.065 10.6854 15.25C10.5618 15.435 10.3861 15.5792 10.1805 15.6644C9.97496 15.7495 9.74876 15.7718 9.53053 15.7284C9.3123 15.685 9.11184 15.5778 8.95451 15.4205C8.79717 15.2632 8.69003 15.0627 8.64662 14.8445C8.60321 14.6262 8.62549 14.4 8.71064 14.1945C8.79579 13.9889 8.93998 13.8132 9.12499 13.6896C9.30999 13.566 9.5275 13.5 9.75 13.5C10.0484 13.5 10.3345 13.6185 10.5455 13.8295C10.7565 14.0405 10.875 14.3266 10.875 14.625ZM9.75 4.5C7.68188 4.5 6 6.01406 6 7.875V8.25C6 8.44891 6.07902 8.63968 6.21967 8.78033C6.36033 8.92098 6.55109 9 6.75 9C6.94892 9 7.13968 8.92098 7.28033 8.78033C7.42099 8.63968 7.5 8.44891 7.5 8.25V7.875C7.5 6.84375 8.50969 6 9.75 6C10.9903 6 12 6.84375 12 7.875C12 8.90625 10.9903 9.75 9.75 9.75C9.55109 9.75 9.36033 9.82902 9.21967 9.96967C9.07902 10.1103 9 10.3011 9 10.5V11.25C9 11.4489 9.07902 11.6397 9.21967 11.7803C9.36033 11.921 9.55109 12 9.75 12C9.94892 12 10.1397 11.921 10.2803 11.7803C10.421 11.6397 10.5 11.4489 10.5 11.25V11.1825C12.21 10.8684 13.5 9.50437 13.5 7.875C13.5 6.01406 11.8181 4.5 9.75 4.5ZM19.5 9.75C19.5 11.6784 18.9282 13.5634 17.8568 15.1668C16.7855 16.7702 15.2627 18.0199 13.4812 18.7578C11.6996 19.4958 9.73919 19.6889 7.84787 19.3127C5.95656 18.9365 4.21928 18.0079 2.85571 16.6443C1.49215 15.2807 0.563554 13.5434 0.187348 11.6521C-0.188858 9.76082 0.00422452 7.80042 0.742179 6.01884C1.48013 4.23726 2.72982 2.71452 4.33319 1.64317C5.93657 0.571828 7.82164 0 9.75 0C12.335 0.00272983 14.8134 1.03084 16.6413 2.85872C18.4692 4.68661 19.4973 7.16498 19.5 9.75ZM18 9.75C18 8.1183 17.5162 6.52325 16.6096 5.16655C15.7031 3.80984 14.4146 2.75242 12.9071 2.12799C11.3997 1.50357 9.74085 1.34019 8.14051 1.65852C6.54017 1.97685 5.07016 2.76259 3.91637 3.91637C2.76259 5.07015 1.97685 6.54016 1.65853 8.14051C1.3402 9.74085 1.50358 11.3996 2.128 12.9071C2.75242 14.4146 3.80984 15.7031 5.16655 16.6096C6.52326 17.5161 8.11831 18 9.75 18C11.9373 17.9975 14.0343 17.1275 15.5809 15.5809C17.1275 14.0343 17.9975 11.9373 18 9.75Z" fill="black"/>
+      </svg>
+    </span>
+    Ajuda
+  </button>
+
+  <!-- Editar busca — visible on screen 2 -->
+</header>
+
+<!-- ============================================================
+     DRAWER
+     ============================================================ -->
+<div id="drw-overlay" class="drw-overlay" onclick="closeDrawer()"></div>
+<aside id="drawer" class="drawer" role="dialog" aria-modal="true" aria-labelledby="drw-name">
+  <div class="drw-hd">
+    <div class="drw-av" id="drw-av"></div>
+    <div class="drw-info">
+      <h2 class="drw-name" id="drw-name"></h2>
+      <div class="drw-rating-row">
+        <span class="drw-rnum" id="drw-rnum"></span>
+        <span id="drw-stars"></span>
+        <span class="drw-rcount" id="drw-rcount"></span>
+      </div>
+      <div class="drw-loc-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a7 7 0 0 1 7 7c0 5.25-7 13-7 13S5 14.25 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <span id="drw-loc"></span>
+      </div>
+    </div>
+    <button class="drw-close" onclick="closeDrawer()" aria-label="Fechar painel">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="drw-tabs" role="tablist">
+    <button class="drw-tab active" role="tab" aria-selected="true"  aria-controls="panel-fotos"     id="tab-fotos"     onclick="switchTab('fotos')">Fotos</button>
+    <button class="drw-tab"        role="tab" aria-selected="false" aria-controls="panel-avaliacao" id="tab-avaliacao" onclick="switchTab('avaliacao')">Avaliação</button>
+    <button class="drw-tab"        role="tab" aria-selected="false" aria-controls="panel-sobre"     id="tab-sobre"     onclick="switchTab('sobre')">Sobre</button>
+  </div>
+  <div class="drw-body">
+    <div class="drw-panel"        id="panel-fotos"     role="tabpanel" aria-labelledby="tab-fotos"></div>
+    <div class="drw-panel hidden" id="panel-avaliacao" role="tabpanel" aria-labelledby="tab-avaliacao"></div>
+    <div class="drw-panel hidden" id="panel-sobre"     role="tabpanel" aria-labelledby="tab-sobre"></div>
+  </div>
+  <div class="drw-footer">
+    <button class="btn-drw-contact" id="btn-drw-contact" onclick="drwContact()">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+      </svg>
+      Entrar em contato
+    </button>
+  </div>
+</aside>
+
+<!-- ============================================================
+     LIGHTBOX
+     ============================================================ -->
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Foto ampliada" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="">
+  <button class="lightbox-close" onclick="event.stopPropagation();closeLightbox()" aria-label="Fechar foto">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+  </button>
+</div>
+
+<!-- ============================================================
+     SCREEN 1 — PERGUNTAS
+     ============================================================ -->
+<div id="screen-q">
+  <div class="q-wrap">
+
+    <!-- hero card -->
+    <div class="hero-card">
+      <!-- blobs -->
+      <div class="hero-blob hero-blob-1">
+        <div class="hero-blob-inner"><img src="banner_ellipse.svg" alt=""></div>
+      </div>
+      <div class="hero-blob hero-blob-2">
+        <div class="hero-blob-inner"><img src="banner_ellipse.svg" alt=""></div>
+      </div>
+      <!-- kicker -->
+      <p class="hero-kicker">Começe agora</p>
+      <!-- photo -->
+      <div class="hero-card-photo">
+        <img src="banner_hero.png" alt="Profissionais em reunião de projeto">
+      </div>
+      <!-- text -->
+      <div class="hero-card-text">
+        <span class="hero-p">Você merece começar sua obra com confiança,&nbsp;</span>
+        <span class="hero-p"><span class="hero-em-m">não com sorte</span><span class="hero-em-r">.</span></span>
+      </div>
+    </div>
+
+    <!-- o que você precisa -->
+    <div class="sec-head">
+      <h2>O que você precisa?</h2>
+      <p>Selecione o serviço que você está procurando. Você pode escolher mais de um.</p>
+    </div>
+
+    <div class="chips-grid" id="chips-grid" role="group" aria-label="Selecione os serviços"></div>
+
+    <!-- onde será o serviço -->
+    <div class="sec-head" style="margin-top:16px;">
+      <h2>Onde será o serviço?</h2>
+      <p>Informe seu CEP ou cidade para encontrarmos profissionais que atendem na sua região.</p>
+    </div>
+
+    <div class="loc-section">
+      <div class="loc-field">
+        <svg class="pin-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M10 2a5.5 5.5 0 0 1 5.5 5.5C15.5 11 10 17 10 17S4.5 11 4.5 7.5A5.5 5.5 0 0 1 10 2z"/>
+          <circle cx="10" cy="7.5" r="2"/>
+        </svg>
+        <input
+          type="text"
+          id="loc-input"
+          placeholder="Digite seu CEP ou cidade"
+          autocomplete="off"
+          aria-label="Localização do serviço"
+          aria-describedby="loc-err"
+        >
+        <div class="loc-error" id="loc-err" role="alert">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+            <circle cx="10" cy="10" r="8"/>
+            <path d="M10 6.5v4M10 13.5h.01"/>
+          </svg>
+          Não conseguimos identificar esse local. Tente uma cidade, bairro ou CEP válido.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CTA floating card -->
+  <div class="cta-bar" aria-live="polite">
+    <p class="cta-summary" id="cta-summary">Nenhum serviço selecionado</p>
+    <button class="btn-cta" id="btn-cta" disabled onclick="submitSearch()" type="button">
+      Encontrar 
+    </button>
+  </div>
+</div>
+
+<!-- ============================================================
+     SCREEN 2 — RESULTADOS
+     ============================================================ -->
+<div id="screen-r">
+
+  <div class="srch-bar">
+    <div class="srch-chips" id="srch-chips" aria-label="Critérios da busca"></div>
+    <button class="btn-edit" onclick="editSearch()">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M14.5 2.5l3 3L6 17H3v-3L14.5 2.5z"/>
+      </svg>
+      Editar busca
+    </button>
+  </div>
+
+  <div class="r-main">
+    <h1 class="r-title" id="r-title">Profissionais para sua obra</h1>
+    <p class="r-count" id="r-count"></p>
+
+    <div class="sk-grid" id="sk-grid" aria-hidden="true"></div>
+    <div class="cards-grid" id="cards-grid" style="display:none" aria-label="Lista de profissionais"></div>
+
+    <div id="state-empty" style="display:none">
+      <div class="state-box">
+        <div class="state-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+            <path d="M11 8v3M11 14h.01"/>
+          </svg>
+        </div>
+        <h2 class="state-h">Não encontramos profissionais para essa busca</h2>
+        <p class="state-p">Tente alterar o serviço ou ampliar a localização para encontrar mais opções.</p>
+        <div class="state-actions">
+          <button class="btn-state" onclick="editSearch()">Editar busca</button>
+          <button class="btn-state" onclick="editSearch()">Alterar localização</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="state-error" style="display:none">
+      <div class="state-box">
+        <div class="state-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+            <path d="M12 9v4M12 17h.01"/>
+          </svg>
+        </div>
+        <h2 class="state-h">Não foi possível carregar os profissionais</h2>
+        <p class="state-p">Tente novamente em alguns instantes.</p>
+        <div class="state-actions">
+          <button class="btn-state" onclick="retrySearch()">Tentar novamente</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   DATA
+   ============================================================ */
+const SERVICES = [
+  { id:'pintura',     label:'Pintura',        icon:'icon_pintura.png' },
+  { id:'revestimento',label:'Revestimento',   icon:'icon_revestimento.png' },
+  { id:'marcenaria',  label:'Marcenaria',     icon:'icon_marcenaria.png' },
+  { id:'construtora', label:'Construtora',    icon:'icon_construtora.png' },
+  { id:'arquitetura', label:'Arquitetura',    icon:'icon_arquitetura.png' },
+  { id:'decoracao',   label:'Decoração',      icon:'icon_decoracao.png', iconSize:63, iconOffset:-7.5 },
+  { id:'automacao',   label:'Automação',      icon:'icon_automacao.png' },
+  { id:'gourmet',     label:'Espaço Gourmet', icon:'icon_gourmet.png' },
+];
+
+const PROFESSIONALS = [
+  {
+    id:1, name:'Marcenaria Silva', initials:'MS', cat:'marcenaria', spec:'Móveis planejados e armários',
+    rating:4.9, reviews:127, verified:true, loc:'Campinas, SP', bg:'#4A3220',
+    photo:'card_decoracao.png', photoLabel:'Projeto recente', distance:'~2 km',
+    photos:[
+      {src:'card_decoracao.png', alt:'Armário planejado em madeira nobre'},
+      {src:'card_decoracao.png', alt:'Cozinha planejada sob medida'},
+      {src:'card_decoracao.png', alt:'Closet personalizado'},
+    ],
+    drwReviews:[
+      {name:'Ana Souza', initials:'AS', rating:5, date:'Jul 2026', text:'Trabalho impecável! Os armários ficaram exatamente como eu queria, entrega no prazo e equipe muito profissional.'},
+      {name:'Carlos Mena', initials:'CM', rating:5, date:'Jun 2026', text:'Contratei para fazer minha cozinha planejada. Qualidade excepcional, preço justo e atendimento ótimo.'},
+      {name:'Patrícia Lima', initials:'PL', rating:4, date:'Mai 2026', text:'Muito bom serviço! Tive um pequeno atraso na entrega mas o resultado final compensou.'},
+      {name:'Roberto T.', initials:'RT', rating:5, date:'Abr 2026', text:'Recomendo muito! Executaram tudo com precisão e capricho. Closet perfeito.'},
+    ],
+    drwInfo:{
+      description:'Especialistas em marcenaria planejada há mais de 15 anos em Campinas. Trabalhamos com MDF, MDP e madeiras sólidas de alta qualidade, desde o projeto até a instalação.',
+      phone:'(19) 99123-4567',
+      hours:'Seg–Sex: 8h–18h · Sáb: 8h–13h',
+      paymentMethods:['PIX','Cartão de crédito','Boleto','Dinheiro'],
+      website:'https://marcenariasilva.com.br',
+      social:{instagram:'https://instagram.com', facebook:'https://facebook.com'},
+    },
+  },
+  {
+    id:2, name:'Ateliê da Madeira', initials:'AM', cat:'marcenaria', spec:'Mobiliário sob medida',
+    rating:4.8, reviews:89, verified:true, loc:'Campinas, SP', bg:'#3D2A18', distance:'~4 km',
+    photos:[
+      {src:'card_decoracao.png', alt:'Mesa de jantar em madeira maciça'},
+      {src:'card_decoracao.png', alt:'Estante de madeira sob medida'},
+    ],
+    drwReviews:[
+      {name:'Fernanda R.', initials:'FR', rating:5, date:'Jul 2026', text:'O ateliê criou uma mesa de jantar linda! Atendimento personalizado e produto de altíssima qualidade.'},
+      {name:'Marcos A.', initials:'MA', rating:4, date:'Jun 2026', text:'Bom trabalho, estante ficou bonita. Prazo foi um pouco estendido mas avisaram com antecedência.'},
+      {name:'Lúcia T.', initials:'LT', rating:5, date:'Mai 2026', text:'Adorei tudo! Da concepção à entrega, perfeito. Recomendo sem hesitar.'},
+    ],
+    drwInfo:{
+      description:'Mobiliário artesanal sob medida, unindo tradição e design contemporâneo. Cada peça é produzida com madeiras certificadas e acabamento manual.',
+      phone:'(19) 98765-3210',
+      hours:'Seg–Sex: 9h–18h · Sáb: 9h–12h',
+      paymentMethods:['PIX','Cartão de crédito','Transferência'],
+      social:{instagram:'https://instagram.com'},
+    },
+  },
+  {
+    id:3, name:'Revest Pro', initials:'RP', cat:'revestimento', spec:'Pisos e paredes cerâmicas',
+    rating:4.7, reviews:203, verified:true, loc:'Campinas, SP', bg:'#3B4530', distance:'~3 km',
+    photos:[
+      {src:'card_decoracao.png', alt:'Piso em porcelanato grande formato'},
+      {src:'card_decoracao.png', alt:'Parede revestida em pedra'},
+    ],
+    drwReviews:[
+      {name:'João V.', initials:'JV', rating:5, date:'Jul 2026', text:'Assentaram o piso do meu apartamento em tempo recorde. Perfeito, sem uma falha.'},
+      {name:'Bianca O.', initials:'BO', rating:4, date:'Jun 2026', text:'Bom serviço, preço competitivo. O acabamento ficou muito bem feito.'},
+      {name:'Pedro S.', initials:'PS', rating:5, date:'Mai 2026', text:'Excelente empresa! Fizeram toda a fachada da minha casa. Cuidado extremo com alinhamento e rejunte.'},
+    ],
+    drwInfo:{
+      description:'Mais de 10 anos aplicando revestimentos cerâmicos, porcelanatos e pedras naturais em residências e comércios da região de Campinas.',
+      phone:'(19) 99234-5678',
+      hours:'Seg–Sáb: 7h–17h',
+      paymentMethods:['PIX','Dinheiro','Boleto','Cartão de débito'],
+    },
+  },
+  {
+    id:4, name:'AM Revestimentos', initials:'AM', cat:'revestimento', spec:'Revestimento de alto padrão',
+    rating:4.9, reviews:51, verified:true, loc:'Campinas, SP', bg:'#4A3B28', distance:'~6 km',
+    photos:[
+      {src:'card_decoracao.png', alt:'Revestimento de mármore em banheiro'},
+      {src:'card_decoracao.png', alt:'Fachada revestida em pedra natural'},
+    ],
+    drwReviews:[
+      {name:'Cláudia M.', initials:'CM', rating:5, date:'Jul 2026', text:'Usaram mármore carrara no meu banheiro. Resultado deslumbrante, trabalho preciso. Super recomendo!'},
+      {name:'Sérgio N.', initials:'SN', rating:5, date:'Jun 2026', text:'Profissionalismo total. Fizeram a fachada da minha empresa com pedra quartzito. Ficou incrível.'},
+      {name:'Andreia F.', initials:'AF', rating:4, date:'Abr 2026', text:'Excelente qualidade de material e execução. Um dos melhores que já contratei.'},
+    ],
+    drwInfo:{
+      description:'Especialistas em revestimentos de alto padrão: mármore, granito, quartzito e porcelanatos importados. Atendemos projetos residenciais de luxo.',
+      phone:'(19) 99345-6789',
+      hours:'Seg–Sex: 8h–18h',
+      paymentMethods:['PIX','Cartão de crédito','Transferência bancária'],
+      social:{instagram:'https://instagram.com'},
+    },
+  },
+  {
+    id:5, name:'Paulo Pintor', initials:'PP', cat:'pintura', spec:'Pintura residencial e comercial',
+    rating:4.9, reviews:56, verified:false, loc:'Campinas, SP', bg:'#3A445A', distance:'~1 km',
+    photos:[
+      {src:'card_decoracao.png', alt:'Pintura de sala com efeito degradê'},
+      {src:'card_decoracao.png', alt:'Fachada pintada'},
+    ],
+    drwReviews:[
+      {name:'Renata G.', initials:'RG', rating:5, date:'Jul 2026', text:'Paulo é pontual, organizado e o resultado da pintura ficou perfeito. Vai usar o protetor de móveis e tudo mais.'},
+      {name:'Tiago L.', initials:'TL', rating:5, date:'Jun 2026', text:'Pintou meu escritório inteiro em dois dias. Acabamento impecável, sem respingos. Recomendo!'},
+      {name:'Isabel C.', initials:'IC', rating:4, date:'Mai 2026', text:'Bom profissional, preço acessível e trabalho bem feito. Ficou satisfeita com o resultado.'},
+    ],
+    drwInfo:{
+      description:'Paulo é pintor autônomo com 12 anos de experiência em pintura residencial, comercial e fachadas. Trabalha com tintas Suvinil, Coral e Sherwin-Williams.',
+      phone:'(19) 99456-7890',
+      hours:'Seg–Sáb: 7h–17h',
+      paymentMethods:['PIX','Dinheiro'],
+    },
+  },
+  {
+    id:6, name:'Cores & Texturas', initials:'CT', cat:'pintura', spec:'Pintura decorativa e textura',
+    rating:4.7, reviews:138, verified:true, loc:'Campinas, SP', bg:'#5A3A4A', distance:'~5 km',
+    photos:[
+      {src:'card_decoracao.png', alt:'Textura grafiato em sala de estar'},
+      {src:'card_decoracao.png', alt:'Efeito cimento queimado em parede'},
+    ],
+    drwReviews:[
+      {name:'Mariana K.', initials:'MK', rating:5, date:'Jul 2026', text:'Fizeram textura de cimento queimado na minha sala. Resultado incrível, muito diferente do esperado para melhor!'},
+      {name:'Daniel P.', initials:'DP', rating:4, date:'Jun 2026', text:'Ótima empresa para pintura decorativa. Variedade grande de texturas e acabamentos.'},
+      {name:'Camila B.', initials:'CB', rating:5, date:'Mai 2026', text:'Profissionalismo total. Consultoria excelente para escolha de cores e texturas. Ficou lindo!'},
+    ],
+    drwInfo:{
+      description:'Empresa especializada em pintura decorativa: texturas, grafiatos, efeitos amadeirados, cimento queimado e efeito marmorato. Transformamos ambientes.',
+      phone:'(19) 99567-8901',
+      hours:'Seg–Sex: 8h–18h · Sáb: 8h–12h',
+      paymentMethods:['PIX','Cartão de crédito','Boleto'],
+      website:'https://coresexturas.com.br',
+      social:{instagram:'https://instagram.com', facebook:'https://facebook.com'},
+    },
+  },
+  {
+    id:7, name:'SmartHome SP', initials:'SH', cat:'automacao', spec:'Automação residencial',
+    rating:4.8, reviews:145, verified:true, loc:'Campinas, SP', bg:'#2A4A5A', distance:'~7 km',
+    photos:[
+      {src:'card_decoracao.png', alt:'Painel de controle de automação'},
+      {src:'card_decoracao.png', alt:'Iluminação automatizada em sala'},
+    ],
+    drwReviews:[
+      {name:'Eduardo R.', initials:'ER', rating:5, date:'Jul 2026', text:'Instalaram automação completa na minha casa: iluminação, persianas e ar condicionado. Tudo integrado no celular. Impressionante!'},
+      {name:'Vanessa M.', initials:'VM', rating:5, date:'Jun 2026', text:'Excelente empresa! Projeto bem planejado, execução impecável e suporte pós-venda ótimo.'},
+      {name:'Rafael O.', initials:'RO', rating:4, date:'Mai 2026', text:'Bom serviço, tecnologia de ponta. Levei um tempo para aprender o app mas a equipe ajudou.'},
+    ],
+    drwInfo:{
+      description:'Soluções completas de automação residencial: controle de iluminação, climatização, segurança e entretenimento via smartphone ou voz.',
+      phone:'(19) 99678-9012',
+      hours:'Seg–Sex: 8h–18h',
+      paymentMethods:['PIX','Cartão de crédito','Financiamento'],
+      website:'https://smarthomesp.com.br',
+      social:{instagram:'https://instagram.com'},
+    },
+  },
+  {
+    id:8, name:'Arq. Fernanda Lima', initials:'FL', cat:'arquitetura', spec:'Projetos residenciais',
+    rating:4.9, reviews:78, verified:true, loc:'Campinas, SP', bg:'#5A3A44', distance:'~3 km',
+    photos:[
+      {src:'card_decoracao.png', alt:'Projeto de casa contemporânea'},
+      {src:'card_decoracao.png', alt:'Renderização de sala de estar'},
+    ],
+    drwReviews:[
+      {name:'Gustavo L.', initials:'GL', rating:5, date:'Jul 2026', text:'Fernanda projetou nossa casa dos sonhos. Cada detalhe pensado, funcional e lindo ao mesmo tempo. Profissional incrível!'},
+      {name:'Aline T.', initials:'AT', rating:5, date:'Jun 2026', text:'Atendimento impecável desde a primeira conversa. Projetos detalhados e dentro do orçamento combinado.'},
+      {name:'Bruno H.', initials:'BH', rating:5, date:'Mai 2026', text:'Recomendo de olhos fechados. A Fernanda transformou completamente o conceito da nossa reforma.'},
+    ],
+    drwInfo:{
+      description:'Arquiteta com 8 anos de experiência em projetos residenciais. Especialidade em plantas abertas, integração de ambientes e aproveitamento natural de luz.',
+      phone:'(19) 99789-0123',
+      hours:'Seg–Sex: 9h–18h',
+      paymentMethods:['PIX','Transferência bancária','Cheque'],
+      social:{instagram:'https://instagram.com'},
+    },
+  },
+  {
+    id:9, name:'Arq. Bruno Mendes', initials:'BM', cat:'arquitetura', spec:'Design de interiores',
+    rating:4.7, reviews:122, verified:true, loc:'Campinas, SP', bg:'#3A3A5A', distance:'~5 km',
+    photos:[
+      {src:'card_decoracao.png', alt:'Design de interiores — sala minimalista'},
+      {src:'card_decoracao.png', alt:'Projeto de cozinha gourmet'},
+    ],
+    drwReviews:[
+      {name:'Lívia A.', initials:'LA', rating:5, date:'Jul 2026', text:'Bruno tem um olhar único para espaços. O projeto de interiores do meu apartamento ficou de revista.'},
+      {name:'Caio R.', initials:'CR', rating:4, date:'Jun 2026', text:'Ótimo profissional, criativo e atento aos detalhes. O resultado ficou acima do esperado.'},
+      {name:'Natalia V.', initials:'NV', rating:5, date:'Abr 2026', text:'Muito satisfeita! Bruno entendeu exatamente o estilo que eu queria e executou com maestria.'},
+    ],
+    drwInfo:{
+      description:'Especialista em design de interiores com foco em ambientes funcionais e esteticamente refinados. Projetos completos do conceito à execução.',
+      phone:'(19) 99890-1234',
+      hours:'Seg–Sex: 9h–18h · Atende fins de semana com agendamento',
+      paymentMethods:['PIX','Cartão de crédito','Boleto'],
+      social:{instagram:'https://instagram.com', facebook:'https://facebook.com'},
+    },
+  },
+  {
+    id:10, name:'Construções Costa', initials:'CC', cat:'construtora', spec:'Reformas e construções',
+    rating:4.6, reviews:312, verified:true, loc:'Campinas, SP', bg:'#344030', distance:'~8 km',
+    photo:'costa_projeto.png', photoLabel:'Projeto recente',
+    photos:[
+      {src:'costa_projeto.png', alt:'Residência de alto padrão — fachada'},
+      {src:'card_decoracao.png', alt:'Construção de varanda'},
+    ],
+    drwReviews:[
+      {name:'Fábio M.', initials:'FM', rating:5, date:'Jul 2026', text:'Reforma completa do meu apartamento, 90 dias de prazo e entregaram em 95. Qualidade excelente do início ao fim.'},
+      {name:'Simone G.', initials:'SG', rating:4, date:'Jun 2026', text:'Boa construtora, equipe grande e organizada. Comunicação poderia ser melhor durante a obra.'},
+      {name:'Claudio B.', initials:'CB', rating:5, date:'Mai 2026', text:'Empresa séria e confiável. Fizeram minha varanda coberta com muita qualidade. Recomendo!'},
+    ],
+    drwInfo:{
+      description:'Construtora com 20 anos de atuação em Campinas, especializada em reformas residenciais e comerciais, construção de áreas de lazer e pequenas construções.',
+      phone:'(19) 3344-5678',
+      hours:'Seg–Sex: 7h–17h · Sáb: 7h–12h',
+      paymentMethods:['PIX','Boleto','Financiamento','Cartão de crédito'],
+      website:'https://construcoescosta.com.br',
+      social:{instagram:'https://instagram.com', facebook:'https://facebook.com'},
+    },
+  },
+  {
+    id:11, name:'Studio Gourmet', initials:'SG', cat:'gourmet', spec:'Espaços gourmet e lazer',
+    rating:4.7, reviews:94, verified:false, loc:'Campinas, SP', bg:'#4A3C28', distance:'~4 km',
+    photos:[
+      {src:'card_decoracao.png', alt:'Espaço gourmet completo com churrasqueira'},
+      {src:'card_decoracao.png', alt:'Área de lazer com piscina'},
+    ],
+    drwReviews:[
+      {name:'Alexandre N.', initials:'AN', rating:5, date:'Jul 2026', text:'Montaram meu espaço gourmet completo: churrasqueira, forno de pizza e bancada. Ficou perfeito!'},
+      {name:'Roberta F.', initials:'RF', rating:4, date:'Jun 2026', text:'Bom trabalho no projeto da área de lazer. Comunicação eficiente e resultado bonito.'},
+      {name:'Henrique L.', initials:'HL', rating:5, date:'Mai 2026', text:'Equipe criativa que valorizou muito bem o espaço disponível. Super satisfeito!'},
+    ],
+    drwInfo:{
+      description:'Criação e execução de espaços gourmet e áreas de lazer: churrasqueiras, fornos de pizza, bancadas e áreas de convivência completas.',
+      phone:'(19) 99012-3456',
+      hours:'Seg–Sex: 8h–18h · Sáb: 8h–13h',
+      paymentMethods:['PIX','Cartão de crédito','Boleto'],
+    },
+  },
+  {
+    id:12, name:'Casa Conectada', initials:'CC', cat:'automacao', spec:'Automação e smart home',
+    rating:4.8, reviews:167, verified:true, loc:'Campinas, SP', bg:'#2A3A54', distance:'~6 km',
+    photos:[
+      {src:'card_decoracao.png', alt:'Central de automação smart home'},
+      {src:'card_decoracao.png', alt:'Fechadura digital inteligente'},
+    ],
+    drwReviews:[
+      {name:'Priscila M.', initials:'PM', rating:5, date:'Jul 2026', text:'Instalaram fechaduras, câmeras e automação de iluminação. Tudo funciona perfeitamente pelo app. Adorei!'},
+      {name:'Lucas T.', initials:'LT', rating:5, date:'Jun 2026', text:'Empresa muito profissional. Fizeram um projeto personalizado para a minha casa e ficou incrível.'},
+      {name:'Carolina A.', initials:'CA', rating:4, date:'Mai 2026', text:'Ótimo atendimento e produtos de qualidade. Suporte técnico rápido quando precisei.'},
+    ],
+    drwInfo:{
+      description:'Especialistas em soluções smart home completas: segurança, iluminação inteligente, controle de acesso e integração com assistentes de voz.',
+      phone:'(19) 99123-4568',
+      hours:'Seg–Sex: 8h–18h',
+      paymentMethods:['PIX','Cartão de crédito','Financiamento'],
+      website:'https://casaconectada.com.br',
+      social:{instagram:'https://instagram.com'},
+    },
+  },
+  {
+    id:13, name:'Decor & Co', initials:'DC', cat:'decoracao', spec:'Decoração de interiores',
+    rating:4.6, reviews:88, verified:true, loc:'Campinas, SP', bg:'#2A4A48', distance:'~3 km',
+    photos:[
+      {src:'card_decoracao.png', alt:'Sala de estar decorada'},
+      {src:'card_decoracao.png', alt:'Quarto conceitual'},
+    ],
+    drwReviews:[
+      {name:'Tatiana S.', initials:'TS', rating:5, date:'Jul 2026', text:'A Decor & Co transformou minha sala! Consultoria perfeita, curadoria de móveis e acessórios impecável.'},
+      {name:'Felipe A.', initials:'FA', rating:4, date:'Jun 2026', text:'Bom atendimento e boas sugestões. Alguns itens demoraram para chegar mas o resultado final foi ótimo.'},
+      {name:'Juliana P.', initials:'JP', rating:5, date:'Abr 2026', text:'Serviço de decoração completo e sem estresse. Recomendo muito para quem não tem tempo de pesquisar.'},
+    ],
+    drwInfo:{
+      description:'Estúdio de decoração de interiores com foco em criar ambientes funcionais, acolhedores e com identidade. Da consultoria à curadoria de peças.',
+      phone:'(19) 99234-5679',
+      hours:'Seg–Sex: 9h–18h',
+      paymentMethods:['PIX','Cartão de crédito','Boleto'],
+      social:{instagram:'https://instagram.com', facebook:'https://facebook.com'},
+    },
+  },
+  {
+    id:15, name:'Grupo Aires', initials:'GA', cat:'construtora',
+    spec:'Arquitetura, engenharia e construção',
+    rating:4.9, reviews:48, verified:true, loc:'São Paulo, SP', bg:'#f4f3ee',
+    logo:'logo_aires.png',
+    photo:'aires_projeto.png', photoLabel:'Projeto recente', distance:'~5 km',
+    photos:[
+      {src:'aires_projeto.png', alt:'Residência de alto padrão — fachada contemporânea'},
+      {src:'aires_projeto.png', alt:'Projeto residencial Aires'},
+      {src:'aires_projeto.png', alt:'Acabamento externo'},
+    ],
+    drwReviews:[
+      {name:'Rodrigo Fonseca', initials:'RF', rating:5, date:'Jul 2026', text:'O Grupo Aires entregou nossa casa exatamente como sonhamos. Desde a escolha do terreno até a entrega das chaves, tudo foi transparente e preciso. Recomendo sem hesitar!'},
+      {name:'Camila Duarte', initials:'CD', rating:5, date:'Jun 2026', text:'Contratei para um projeto residencial de alto padrão. A equipe tem um cuidado incrível com cada detalhe. Resultado impecável.'},
+      {name:'Marcos Teixeira', initials:'MT', rating:5, date:'Mai 2026', text:'Empresa séria, profissional e comprometida. O cronograma foi cumprido à risca e o orçamento respeitado. Raridade no mercado!'},
+      {name:'Beatriz Almeida', initials:'BA', rating:4, date:'Abr 2026', text:'Excelente trabalho arquitetônico. A comunicação poderia ser mais frequente durante a obra, mas o resultado final superou as expectativas.'},
+    ],
+    drwInfo:{
+      description:'Há mais de 15 anos materializando sonhos. Arquitetura, engenharia e construção para projetos residenciais e comerciais de médio e alto padrão. Da seleção do terreno até a entrega das chaves, com total transparência em prazos, custos e etapas.',
+      phone:'(11) 97570-3303',
+      hours:'Seg–Sex: 8h–18h · Sáb: com agendamento',
+      paymentMethods:['PIX','Financiamento','Cartão de crédito','Transferência bancária'],
+      website:'https://grupoaires.com.br',
+      social:{instagram:'https://instagram.com/grupoaires_'},
+    },
+  },
+  {
+    id:14, name:'Ambientes Únicos', initials:'AU', cat:'decoracao', spec:'Decoração personalizada',
+    rating:4.7, reviews:201, verified:true, loc:'Campinas, SP', bg:'#3A2A5A', distance:'~5 km',
+    photos:[
+      {src:'card_decoracao.png', alt:'Decoração de home office'},
+      {src:'card_decoracao.png', alt:'Ambiente integrado decorado'},
+    ],
+    drwReviews:[
+      {name:'Beatriz R.', initials:'BR', rating:5, date:'Jul 2026', text:'Decoração do meu home office ficou um sonho! Equipe criativa e muito atenciosa com os detalhes pessoais.'},
+      {name:'Thiago M.', initials:'TM', rating:5, date:'Jun 2026', text:'Empresa que realmente personaliza o serviço. Sentiram o meu estilo e entregaram além do esperado.'},
+      {name:'Larissa D.', initials:'LD', rating:4, date:'Mai 2026', text:'Muito bom! Gostei do processo consultivo e da variedade de fornecedores que eles trabalham.'},
+    ],
+    drwInfo:{
+      description:'Decoração personalizada com assinatura: ouvimos cada detalhe do seu estilo de vida para criar ambientes únicos que refletem quem você é.',
+      phone:'(19) 99345-6780',
+      hours:'Seg–Sex: 9h–18h · Sáb: com agendamento',
+      paymentMethods:['PIX','Cartão de crédito','Transferência'],
+      website:'https://ambientesunicos.com.br',
+      social:{instagram:'https://instagram.com'},
+    },
+  },
+];
+
+/* ============================================================
+   STATE
+   ============================================================ */
+let selected = new Set();
+let locValue  = '';
+
+/* ============================================================
+   INIT
+   ============================================================ */
+renderChips();
+renderSkeletons();
+
+document.getElementById('loc-input').addEventListener('input', function(){
+  locValue = this.value;
+  this.classList.remove('err');
+  document.getElementById('loc-err').classList.remove('show');
+  updateCTA();
+});
+
+/* ============================================================
+   CHIPS
+   ============================================================ */
+function renderChips(){
+  const g = document.getElementById('chips-grid');
+  g.innerHTML = SERVICES.map(s => `
+    <button class="chip" id="chip-${s.id}" onclick="toggleChip('${s.id}')" aria-pressed="false" aria-label="${s.label}" type="button">
+      <div class="chip-icon-wrap">
+        <img src="${s.icon}" alt="" class="chip-icon-img"${s.iconSize ? ` style="width:${s.iconSize}px;height:${s.iconSize}px;top:${s.iconOffset}px;left:${s.iconOffset}px"` : ''}>
+      </div>
+      <span class="chip-label">${s.label}</span>
+      <span class="chip-cb" aria-hidden="true">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2.5 7l3 3 6-6"/>
+        </svg>
+      </span>
+    </button>
+  `).join('');
+}
+
+function toggleChip(id){
+  selected.has(id) ? selected.delete(id) : selected.add(id);
+  const chip = document.getElementById(`chip-${id}`);
+  const on = selected.has(id);
+  chip.classList.toggle('on', on);
+  chip.setAttribute('aria-pressed', String(on));
+  updateSummary();
+  updateCTA();
+}
+
+function updateSummary(){
+  const el = document.getElementById('cta-summary');
+  const n = selected.size;
+  if(!n){ el.innerHTML = 'Nenhum serviço selecionado'; return; }
+  const labels = [...selected].map(id => SERVICES.find(s=>s.id===id)?.label).join(', ');
+  el.innerHTML = `<strong>${n} ${n===1?'serviço':'serviços'}:</strong> ${labels}`;
+}
+
+function updateCTA(){
+  document.getElementById('btn-cta').disabled = selected.size === 0 || locValue.trim().length < 2;
+}
+
+/* ============================================================
+   SUBMIT → RESULTS
+   ============================================================ */
+function submitSearch(){
+  const loc = locValue.trim();
+  if(loc.length < 2){
+    const inp = document.getElementById('loc-input');
+    inp.classList.add('err');
+    document.getElementById('loc-err').classList.add('show');
+    inp.focus();
+    return;
+  }
+
+  const sq = document.getElementById('screen-q');
+  sq.classList.add('fade-exit');
+
+  setTimeout(()=>{
+    sq.style.display = 'none';
+    sq.classList.remove('fade-exit');
+
+    setupResults();
+    const sr = document.getElementById('screen-r');
+    sr.classList.add('vis');
+    sr.classList.add('fade-enter');
+    document.body.classList.add('on-results');
+
+    document.getElementById('sk-grid').style.display   = 'grid';
+    document.getElementById('cards-grid').style.display = 'none';
+    document.getElementById('state-empty').style.display = 'none';
+    document.getElementById('state-error').style.display = 'none';
+
+    setTimeout(()=>{ sr.classList.remove('fade-enter'); showCards(); }, 1600);
+  }, 300);
+}
+
+function setupResults(){
+  const cats = [...selected];
+  const labels = cats.map(id => SERVICES.find(s=>s.id===id)?.label);
+  const titleEl = document.getElementById('r-title');
+  titleEl.textContent = cats.length===1
+    ? `Profissionais de ${labels[0].toLowerCase()} perto de você`
+    : 'Profissionais para sua obra';
+
+  const chipsEl = document.getElementById('srch-chips');
+  const sChips = labels.map(l=>`<span class="srch-chip">${l}</span>`).join('');
+  const lChip = `<span class="srch-sep">·</span><span class="srch-chip ghost">${locValue.trim()}</span>`;
+  chipsEl.innerHTML = sChips + lChip;
+}
+
+function showCards(){
+  const filtered = PROFESSIONALS.filter(p => selected.has(p.cat));
+  document.getElementById('sk-grid').style.display = 'none';
+
+  if(!filtered.length){
+    document.getElementById('state-empty').style.display = 'block';
+    document.getElementById('r-count').textContent = '';
+    return;
+  }
+
+  const n = filtered.length;
+  document.getElementById('r-count').textContent =
+    `${n} profissional${n>1?'is':''} encontrado${n>1?'s':''} em ${locValue.trim()}`;
+
+  const grid = document.getElementById('cards-grid');
+  grid.innerHTML = filtered.map(p=>cardHTML(p)).join('');
+  grid.style.display = 'grid';
+}
+
+/* ============================================================
+   CARD
+   ============================================================ */
+function starsHTML(rating){
+  const pct = (rating/5)*100;
+  return `<span class="stars" aria-hidden="true">
+    <span class="stars-bg">★★★★★</span>
+    <span class="stars-fg" style="width:${pct}%">★★★★★</span>
+  </span>`;
+}
+
+function cardHTML(p){
+  const catLabel = SERVICES.find(s=>s.id===p.cat)?.label||'';
+  return `
+  <article class="pro-card" onclick="openDrawer(${p.id})" aria-label="${p.name}, ${p.rating} de 5 estrelas, ${p.reviews} avaliações">
+    <div class="pro-photo">
+      <img src="${p.photo || 'card_decoracao.png'}" alt="Foto de projeto de ${p.name}" loading="lazy">
+      ${p.photoLabel ? `<span class="pro-photo-badge">${p.photoLabel}</span>` : ''}
+    </div>
+    <div class="pro-card-body">
+      <div class="pro-top">
+        <div class="pro-av" style="background:${p.bg}" aria-hidden="true">${p.logo ? `<img src="${p.logo}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;">` : p.initials}</div>
+        <div class="pro-name-block">
+          <p class="pro-name">${p.name}</p>
+          <div class="pro-rating">
+            <span class="pro-rnum">${p.rating}</span>
+            ${starsHTML(p.rating)}
+            <span class="pro-rcount">· ${p.reviews.toLocaleString('pt-BR')} avaliações</span>
+          </div>
+        </div>
+      </div>
+      <div class="pro-verified${p.verified?'':' hidden'}" aria-label="${p.verified?'Profissional verificado':''}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 12l2 2 4-4"/><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+        Profissional verificado
+      </div>
+      <div class="pro-meta">
+        <span class="pro-tag">${catLabel}</span>
+        <p class="pro-spec">${p.spec}</p>
+        <p class="pro-loc">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2a7 7 0 0 1 7 7c0 5.25-7 13-7 13S5 14.25 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/>
+          </svg>
+          ${p.loc}
+        </p>
+      </div>
+      <div class="pro-actions">
+        <button class="btn-ver" onclick="event.stopPropagation();openDrawer(${p.id})">Ver profissional</button>
+        <button class="btn-wa" onclick="event.stopPropagation();contactWA(${p.id})" aria-label="Conversar pelo WhatsApp com ${p.name}" title="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </article>`;
+}
+
+/* ============================================================
+   SKELETONS
+   ============================================================ */
+function renderSkeletons(){
+  document.getElementById('sk-grid').innerHTML = Array(6).fill(0).map(()=>`
+    <div class="sk-card" aria-hidden="true">
+      <div class="sk-row">
+        <div class="sk sk-av"></div>
+        <div class="sk-lines">
+          <div class="sk sk-l w70"></div>
+          <div class="sk sk-l w50"></div>
+        </div>
+      </div>
+      <div class="sk sk-l w35" style="margin-bottom:14px"></div>
+      <div style="height:1px;background:var(--hair);margin-bottom:14px"></div>
+      <div class="sk sk-l w50" style="margin-bottom:8px"></div>
+      <div class="sk sk-l w70" style="margin-bottom:8px"></div>
+      <div class="sk sk-l w35" style="margin-bottom:18px"></div>
+      <div class="sk-actions">
+        <div class="sk sk-btn-main"></div>
+        <div class="sk sk-btn-sq"></div>
+      </div>
+    </div>
+  `).join('');
+  document.getElementById('sk-grid').style.display = 'none';
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+function editSearch(){
+  const sr = document.getElementById('screen-r');
+  sr.classList.add('fade-exit');
+  setTimeout(()=>{
+    sr.classList.remove('vis','fade-exit','fade-enter');
+    document.body.classList.remove('on-results');
+    const sq = document.getElementById('screen-q');
+    sq.style.display = '';
+    sq.classList.add('fade-enter');
+    setTimeout(()=> sq.classList.remove('fade-enter'), 450);
+  }, 300);
+}
+
+function retrySearch(){
+  document.getElementById('state-error').style.display = 'none';
+  document.getElementById('sk-grid').style.display = 'grid';
+  setTimeout(()=>showCards(), 1600);
+}
+
+function viewPro(id){ openDrawer(id); }
+
+/* ============================================================
+   DRAWER
+   ============================================================ */
+let _drawerPro = null;
+
+function openDrawer(id){
+  const p = PROFESSIONALS.find(x=>x.id===id);
+  if(!p) return;
+  _drawerPro = p;
+
+  const av = document.getElementById('drw-av');
+  av.style.background = p.bg;
+  av.innerHTML = p.logo
+    ? `<img src="${p.logo}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;">`
+    : p.initials;
+  document.getElementById('drw-name').textContent = p.name;
+  document.getElementById('drw-rnum').textContent = p.rating;
+  document.getElementById('drw-stars').innerHTML = starsHTML(p.rating);
+  document.getElementById('drw-rcount').textContent = `· ${p.reviews.toLocaleString('pt-BR')} avaliações`;
+  document.getElementById('drw-loc').textContent = p.loc + (p.distance ? ` · ${p.distance}` : '');
+
+  renderFotos(p);
+  renderAvaliacao(p);
+  renderSobre(p);
+  switchTab('fotos', false);
+
+  document.getElementById('drw-overlay').classList.add('vis');
+  document.getElementById('drawer').classList.add('vis');
+  document.body.style.overflow = 'hidden';
+  setTimeout(()=> document.querySelector('.drw-close')?.focus(), 60);
+}
+
+function closeDrawer(){
+  document.getElementById('drw-overlay').classList.remove('vis');
+  document.getElementById('drawer').classList.remove('vis');
+  document.body.style.overflow = '';
+  _drawerPro = null;
+}
+
+function switchTab(tab, scroll=true){
+  ['fotos','avaliacao','sobre'].forEach(t=>{
+    const btn = document.getElementById(`tab-${t}`);
+    const panel = document.getElementById(`panel-${t}`);
+    const active = t===tab;
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-selected', String(active));
+    panel.classList.toggle('hidden', !active);
+  });
+  if(scroll) document.querySelector('.drw-body').scrollTop = 0;
+}
+
+function renderFotos(p){
+  const el = document.getElementById('panel-fotos');
+  if(!p.photos?.length){ el.innerHTML='<p class="no-photos">Nenhuma foto disponível.</p>'; return; }
+  el.innerHTML = `<div class="photo-grid">${p.photos.map(ph=>`
+    <div class="photo-grid-item" onclick="openLightbox('${ph.src}','${ph.alt||''}')" tabindex="0" role="button" aria-label="Ver foto: ${ph.alt||'Projeto'}">
+      <img src="${ph.src}" alt="${ph.alt||'Foto de projeto'}" loading="lazy">
+    </div>`).join('')}</div>`;
+}
+
+function renderAvaliacao(p){
+  const el = document.getElementById('panel-avaliacao');
+  const revs = p.drwReviews || [];
+  const dist = [0,0,0,0,0];
+  revs.forEach(r=>{ const i=Math.round(r.rating)-1; if(i>=0&&i<5) dist[i]++; });
+  const mx = Math.max(...dist, 1);
+  const ratingFmt = String(p.rating).replace('.',',');
+  const barsHTML = [5,4,3,2,1].map(s=>`
+    <div class="rat-bar-row">
+      <div class="rat-bar-track"><div class="rat-bar-fill" style="width:${(dist[s-1]/mx)*100}%"></div></div>
+      <span class="rat-bar-label">${s}</span>
+      <span class="rat-bar-star">★</span>
+    </div>`).join('');
+  const reviewsHTML = revs.map(r=>`
+    <div class="review-item">
+      <div class="review-top">
+        <div class="review-av">${r.initials}</div>
+        <div class="review-meta">
+          <p class="review-name">${r.name}</p>
+          <p class="review-date">${r.date}</p>
+        </div>
+        <div aria-label="${r.rating} de 5 estrelas">${starsHTML(r.rating)}</div>
+      </div>
+      <p class="review-text">${r.text}</p>
+    </div>`).join('');
+  el.innerHTML = `
+    <div class="rat-summary">
+      <div class="rat-left">
+        <div class="rat-big">${ratingFmt}</div>
+        <span class="stars stars--lg" aria-label="${ratingFmt} de 5 estrelas">
+          <span class="stars-bg">★★★★★</span>
+          <span class="stars-fg" style="width:${(p.rating/5)*100}%">★★★★★</span>
+        </span>
+        <span class="rat-count-txt">${p.reviews.toLocaleString('pt-BR')} avaliações</span>
+      </div>
+      <div class="rat-bars">${barsHTML}</div>
+    </div>
+    <div class="reviews-list">${reviewsHTML||'<p class="no-photos">Sem avaliações ainda.</p>'}</div>`;
+}
+
+function renderSobre(p){
+  const el = document.getElementById('panel-sobre');
+  const info = p.drwInfo || {};
+  const payHTML = info.paymentMethods?.length
+    ? `<div class="sobre-pills">${info.paymentMethods.map(m=>`<span class="sobre-pill">${m}</span>`).join('')}</div>`
+    : '<p class="sobre-text">—</p>';
+  const hasSocial = info.social?.instagram || info.social?.facebook;
+  el.innerHTML = `
+    ${info.description ? `<div class="sobre-section"><p class="sobre-label">Sobre</p><p class="sobre-text">${info.description}</p></div>` : ''}
+    <div class="sobre-section">
+      <p class="sobre-label">Contato</p>
+      <div class="sobre-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 12 19.79 19.79 0 0 1 1.07 3.4 2 2 0 0 1 3.05 1.2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 15z"/></svg>
+        ${info.phone||'Não informado'}
+      </div>
+      ${info.hours ? `<div class="sobre-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        ${info.hours}
+      </div>` : ''}
+      ${info.website ? `<div class="sobre-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <a href="${info.website}" target="_blank" rel="noopener" style="color:inherit;">${info.website.replace(/^https?:\/\//,'')}</a>
+      </div>` : ''}
+    </div>
+    <div class="sobre-section">
+      <p class="sobre-label">Formas de pagamento</p>
+      ${payHTML}
+    </div>
+    ${hasSocial ? `<div class="sobre-section">
+      <p class="sobre-label">Redes sociais</p>
+      <div class="sobre-social">
+        ${info.social.instagram ? `<a href="${info.social.instagram}" target="_blank" rel="noopener" class="sobre-social-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram</a>` : ''}
+        ${info.social.facebook ? `<a href="${info.social.facebook}" target="_blank" rel="noopener" class="sobre-social-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook</a>` : ''}
+      </div>
+    </div>` : ''}`;
+}
+
+/* ---- Lightbox ---- */
+function openLightbox(src, alt){
+  const img = document.getElementById('lightbox-img');
+  img.src = src; img.alt = alt||'';
+  document.getElementById('lightbox').classList.add('vis');
+}
+
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('vis');
+}
+
+function drwContact(){
+  if(!_drawerPro) return;
+  const p = _drawerPro;
+  const msg = encodeURIComponent(`Olá ${p.name.split(' ')[0]}! Vi seu perfil no Obra Fácil e gostaria de saber mais sobre seus serviços.`);
+  window.open(`https://wa.me/5511999999999?text=${msg}`,'_blank','noopener');
+}
+
+document.addEventListener('keydown', e=>{
+  if(e.key==='Escape'){
+    if(document.getElementById('lightbox').classList.contains('vis')){ closeLightbox(); return; }
+    if(document.getElementById('drawer').classList.contains('vis')){ closeDrawer(); }
+  }
+});
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+function contactWA(id){
+  const p = PROFESSIONALS.find(x=>x.id===id);
+  const msg = encodeURIComponent(`Olá ${p.name.split(' ')[0]}! Vi seu perfil no Obra Fácil e gostaria de saber mais sobre seus serviços.`);
+  window.open(`https://wa.me/5511999999999?text=${msg}`,'_blank','noopener');
+}
+</script>
+</body>
+</html>
