@@ -184,6 +184,7 @@
     display:flex;
     flex-direction:column;
     gap:32px;
+    z-index:1;
   }
   .hero .kicker{color:rgba(255,255,255,0.75);}
   .hero h1{
@@ -362,36 +363,33 @@
 
   /* ---------- banner cta ---------- */
   .cta-banner{
-    background:#fbf4e3;
+    background:#ffefae;
     border-radius:32px;
-    padding:56px;
-    display:flex;
-    gap:134px;
-    align-items:flex-start;
     position:relative;
     overflow:hidden;
+    height:482px;
   }
   .cta-banner::before{
     content:"";
     position:absolute;
-    width:673px;height:673px;
-    border-radius:50%;
-    background:radial-gradient(circle, rgba(255,211,112,0.45) 0%, rgba(255,211,112,0.08) 55%, transparent 75%);
-    filter:blur(70px);
-    left:-224px;
-    top:50%;
-    transform:translateY(calc(-50% + 17.5px));
+    width:1361px;height:548px;
+    background:radial-gradient(ellipse, rgba(255,211,112,0.55) 0%, rgba(255,211,112,0.1) 40%, transparent 70%);
+    filter:blur(60px);
+    left:-81px;
+    top:calc(50% + 286px);
+    transform:translateY(-50%);
     pointer-events:none;
   }
   .cta-banner-left{
+    position:absolute;
+    left:116px;
+    top:56px;
     width:462px;
-    flex-shrink:0;
+    height:370px;
     display:flex;
     flex-direction:column;
     justify-content:center;
     gap:40px;
-    height:370px;
-    position:relative;
     z-index:1;
   }
   .cta-banner-kicker{
@@ -418,32 +416,33 @@
     margin:0;
   }
   .cta-banner-right{
+    position:absolute;
+    left:684px;
+    top:24px;
     width:572px;
-    height:370px;
-    flex-shrink:0;
+    height:434px;
     border-radius:24px;
     overflow:hidden;
-    position:relative;
   }
   .cta-banner-photo{
-   position:absolute;
-   left: -81px;
-   top: -42px;
-   width: 679px;
-   height:auto;
+    position:absolute;
+    left:-73px;
+    top:-18px;
+    width:698px;
+    height:auto;
   }
   .cta-banner-gradient{
     position:absolute;
-    bottom:-15px;
+    bottom:-37px;
     left:0;right:0;
-    height:400px;
+    height:497px;
     border-radius:32px;
     background:linear-gradient(to top, #191919 0%, #191919 4.076%, rgba(25,25,25,0.16) 49.943%, transparent 100%);
   }
   .cta-banner-caption{
     position:absolute;
     left:30px;
-    top:320px;
+    top:391px;
     color:#fff;
     font-family:var(--font-body);
     font-size:11px;
@@ -452,6 +451,29 @@
     text-transform:uppercase;
     white-space:nowrap;
   }
+  .btn-banner{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    font-family:var(--font-display);
+    font-weight:400;
+    font-size:16px;
+    letter-spacing:0.16px;
+    padding:0 24px;
+    height:64px;
+    border-radius:32px;
+    border:none;
+    background:#fff;
+    color:var(--yellow-dark);
+    transition:transform .25s ease, background .25s ease, color .25s ease;
+    cursor:pointer;
+    white-space:nowrap;
+    width:297px;
+    text-decoration:none;
+  }
+  .btn-banner:hover{background:var(--ink);color:var(--white);transform:translateY(-2px);}
+  .btn-banner:hover svg path{stroke:#fff;}
 
   /* ---------- curadoria ---------- */
   .curadoria-intro{
@@ -981,38 +1003,223 @@
   @media (max-width:900px){
     .wrap{padding:0 24px;}
     .nav-links{display:none;}
-    .nav-pill{width:auto;max-width:calc(100% - 32px);}
-    section{padding:80px 0;}
-    .section-cta{padding:80px 0;}
-    .cta-banner{flex-direction:column;gap:32px;padding:40px 32px;}
-    .cta-banner-left{width:100%;height:auto;}
-    .cta-banner-h2{font-size:28px;}
-    .cta-banner-right{width:100%;height:240px;}
-    .cta-banner-photo{left:0;top:-40px;width:100%;height:auto;}
-    .cta-banner-caption{top:auto;bottom:20px;}
-    .problema-grid{flex-direction:column;gap:48px;}
-    .problema-copy{flex:none;width:100%;}
-    .problema-photo-img{flex:none;width:100%;height:280px;}
-    .curadoria-intro{grid-template-columns:1fr;gap:48px;}
-    .curadoria-photo{height:320px;}
-    .criteria{grid-template-columns:1fr;column-gap:0;row-gap:44px;}
-    .curators{grid-template-columns:1fr;gap:56px;}
-    .steps{grid-template-columns:1fr;gap:56px;}
-    .step{height:auto;gap:40px;}
+    .nav-pill{width:auto;max-width:calc(100% - 32px);height:64px;padding:0 24px;}
+    section{padding:40px 0;}
+    .section-cta{padding:40px 0;}
+    .vision{padding:40px 0;}
+
+    /* hero — mobile: texto acima, foto abaixo */
+    .hero{
+      height:auto;
+      min-height:0;
+      background:var(--paper);
+      display:flex;
+      flex-direction:column;
+      padding-top:80px;
+      padding-bottom:40px;
+    }
+    .hero-frame{
+      position:relative;
+      inset:auto;
+      height:330px;
+      border-radius:16px;
+      overflow:hidden;
+      margin:28px 16px 0;
+      order:2;
+      flex-shrink:0;
+    }
+    .hero-overlay{
+      display:block;
+      background:linear-gradient(to top, rgba(25,25,25,0.4) 0%, rgba(25,25,25,0.06) 40%, transparent 70%);
+    }
+    .hero-photo{
+      position:absolute;
+      inset:auto;
+      top:-1.19%;
+      left:-35.99%;
+      width:140.99%;
+      height:auto;
+      max-width:none;
+      object-fit:unset;
+      object-position:unset;
+      transform:none;
+    }
+    .hero-content{
+      position:relative;
+      left:auto;right:auto;bottom:auto;
+      z-index:auto;
+      order:1;
+      padding:32px 24px 0;
+      max-width:100%;
+      gap:20px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+    }
+    .hero .kicker{color:var(--warm-gray);font-size:11px;justify-content:center;}
+    .hero h1{
+      font-size:38px;
+      line-height:1.08;
+      color:var(--ink);
+      font-weight:400;
+      letter-spacing:-0.02em;
+    }
+    .hero-sub{
+      font-size:15px;
+      max-width:100%;
+      color:var(--warm-gray);
+      font-weight:400;
+    }
     .scroll-btn{display:none;}
-    .servicos-track{overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;gap:16px;padding-bottom:4px;}
-    .servico-card{flex:0 0 240px;max-width:240px;scroll-snap-align:start;}
-    .cta-card{height:auto;flex-direction:column;padding:40px 32px;gap:32px;}
+
+    /* problema */
+    .problema-grid{flex-direction:column;gap:40px;}
+    .problema-copy{flex:none;width:100%;}
+    .problema-photo-img{flex:none;width:100%;height:260px;}
+
+    /* visão */
+    .vision-card{height:auto;padding:56px 32px;}
+
+    /* cta banner */
+    .cta-banner{height:auto;display:flex;flex-direction:column;gap:32px;padding:40px 28px;}
+    .cta-banner-left{position:relative;left:auto;top:auto;width:100%;height:auto;}
+    .cta-banner-h2{font-size:26px;}
+    .cta-banner-right{position:relative;left:auto;top:auto;width:100%;height:220px;}
+    .cta-banner-photo{left:0;top:0;width:100%;height:100%;object-fit:cover;}
+    .cta-banner-caption{top:auto;bottom:16px;}
+    .btn-banner{width:100%;max-width:360px;}
+
+    /* curadoria */
+    .curadoria-intro{flex-direction:column;gap:40px;margin-bottom:72px;}
+    .curadoria-photo{flex:none;width:100%;height:280px;}
+    .curadoria-copy{flex:none;width:100%;}
+    .curadoria-heading{width:100%;}
+    .curadoria-copy h2{font-size:32px;}
+    .curadoria-copy p:not(.kicker){width:100%;font-size:16px;}
+    .criteria{grid-template-columns:1fr;column-gap:0;row-gap:40px;margin-bottom:72px;}
+    .criteria-item p{height:auto;}
+    .curators{grid-template-columns:1fr;gap:48px;}
+    .curator blockquote{font-size:18px;}
+
+    /* serviços */
+    .servicos-head h2{width:100%;font-size:32px;}
+    .servicos-track{overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;gap:16px;padding-bottom:4px;}
+    .servico-card{flex:0 0 220px;max-width:220px;scroll-snap-align:start;}
+
+    /* como funciona */
+    .como-funciona-title{font-size:32px;margin-bottom:56px;}
+    .steps{grid-template-columns:1fr;gap:48px;}
+    .step{height:auto;gap:40px;}
+    .step h4{font-size:24px;}
+    .step p{font-size:16px;}
+
+    /* cta card */
+    .cta-card{height:auto;flex-direction:column;padding:40px 28px;gap:32px;}
     .cta-left{flex:none;height:auto;}
-    .cta-right{flex:none;width:100%;height:280px;border-radius:16px;}
-    .cta-right img{left:0;top:0;width:100%;height:100%;}
+    .cta-left h2{font-size:28px;}
+    .cta-right{flex:none;width:100%;height:260px;border-radius:16px;}
+    .cta-right img{left:0;top:0;width:100%;height:100%;object-fit:cover;}
+    .btn-solid{width:100%;max-width:360px;}
+    .cta-bottom .btn-solid{width:100%;max-width:100%;}
+
+    /* drawer close */
+    .drawer-close{left:auto;right:16px;top:16px;z-index:10;}
+
+    /* animação */
     #cozinha-animation{height:300vh;}
-    footer{height:auto;}
-    .footer-inner{height:auto;padding-top:40px;padding-bottom:120px;}
-    .footer-logo-area{width:100%;margin:0;}
-    .footer-tagline{margin-top:12px;padding-left:0;font-size:15px;}
-    .footer-bottom{padding:0;flex-wrap:wrap;gap:16px;}
-    .footer-big-logo{width:280px;}
+
+    /* footer */
+    footer{height:auto;background:#fbf9f5;border-top:solid 1px #ebebeb;padding:16px;}
+    .footer-bg{display:none;}
+    .footer-inner{
+      height:auto;
+      padding:40px 16px;
+      gap:24px;
+      justify-content:space-between;
+    }
+    .footer-logo-area{
+      width:100%;
+      margin:0;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      gap:8px;
+    }
+    .footer-big-logo{width:200px;filter:none;}
+    .footer-tagline{
+      margin-top:0;
+      padding-left:0;
+      font-size:12px;
+      letter-spacing:0.12em;
+      color:var(--warm-gray);
+      text-align:center;
+    }
+    .footer-bottom{
+      padding:0;
+      flex-direction:column;
+      align-items:center;
+      gap:16px;
+    }
+    .footer-social img{filter:none;opacity:1;}
+    .footer-meta{
+      color:var(--warm-gray);
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:16px;
+    }
+  }
+
+  @media (max-width:480px){
+    .wrap{padding:0 20px;}
+    .nav-pill{max-width:calc(100% - 24px);height:56px;padding:0 20px;}
+    section{padding:40px 0;}
+    .section-cta{padding:40px 0;}
+    .vision{padding:40px 0;}
+
+    /* hero */
+    .hero{padding-top:68px;padding-bottom:32px;}
+    .hero-frame{height:280px;margin:20px 12px 0;}
+    .hero-content{padding:24px 20px 0;}
+    .hero h1{font-size:32px;}
+    .hero-sub{font-size:14px;}
+
+    /* problema */
+    .problema-copy h2{font-size:24px;}
+    .problema-photo-img{height:220px;}
+
+    /* visão */
+    .vision-card{padding:48px 20px;}
+    .vision h2{font-size:24px;}
+    .vision-content p:not(.kicker){font-size:15px;}
+
+    /* cta banner */
+    .cta-banner{padding:32px 20px;}
+    .cta-banner-h2{font-size:22px;}
+    .cta-banner-right{height:180px;}
+    .btn-banner{width:100%;max-width:100%;}
+
+    /* curadoria */
+    .curadoria-copy h2{font-size:26px;}
+    .criteria-item h4{font-size:16px;}
+    .criteria-item p{font-size:14px;}
+    .curator blockquote{font-size:16px;}
+
+    /* como funciona */
+    .como-funciona-title{font-size:26px;margin-bottom:40px;}
+    .step h4{font-size:22px;}
+    .step p{font-size:15px;}
+
+    /* cta card */
+    .cta-card{padding:32px 20px;}
+    .cta-left h2{font-size:24px;}
+    .cta-right{height:220px;}
+
+    /* footer */
+    .footer-big-logo{width:160px;}
+    .footer-tagline{font-size:11px;}
+    .footer-meta{flex-direction:row;gap:16px;}
   }
 </style>
 </head>
@@ -1037,11 +1244,11 @@
     <div class="hero-frame">
       <img class="hero-photo" src="hero.png" alt="Casal se abraçando na entrada de uma casa recém-reformada, luz natural">
       <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <p class="kicker">Curadoria de profissionais para obras</p>
-        <h1>Você merece começar sua obra com confiança,<br><em>não com sorte.</em></h1>
-        <p class="hero-sub">Profissionais de confiança para sua obra. Selecionados por especialistas.</p>
-      </div>
+    </div>
+    <div class="hero-content">
+      <p class="kicker">Curadoria de profissionais para obras</p>
+      <h1>Você merece começar sua obra com confiança,<br><em>não com sorte.</em></h1>
+      <p class="hero-sub">Profissionais de confiança para sua obra. Selecionados por especialistas.</p>
     </div>
     <div class="scroll-btn">
       <span class="scroll-label">Role para conhecer</span>
@@ -1256,7 +1463,12 @@
             <p class="cta-banner-kicker">COMEÇE AGORA</p>
             <h2 class="cta-banner-h2">Você cuida da sua casa.<br>Nós cuidamos de quem entra nela.</h2>
           </div>
-          <a href="profissionais.html" class="btn-solid">Conheça nossos profissionais</a>
+          <a href="#servicos" class="btn-banner">
+            Conheça nossos serviços
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.167 10H15.833M15.833 10L10.833 5M15.833 10L10.833 15" stroke="#40280B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
         </div>
         <div class="cta-banner-right">
           <img src="visao_photo.png" alt="Marceneiro trabalhando" class="cta-banner-photo">
